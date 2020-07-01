@@ -19,11 +19,11 @@ jobs:
         with:
           args: run lint
       - name: docker build
-        uses: actions/docker/cli@master
+        uses: actions-hub/docker/cli@master
         with:
           args: build -t irt01/node-web-app .
       - name: docker login
-        uses: actions/docker/login@master
+        uses: actions-hub/docker/login@master
         env:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
