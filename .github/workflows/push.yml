@@ -7,15 +7,15 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: npm install
-        uses: serverless/github-action@master
+        uses: actions/npm@master
         with:
           args: install
       - name: npm test
-        uses: serverless/github-action@master
+        uses: actions/npm@master
         with:
           args: run test
       - name: npm lint
-        uses: serverless/github-action@master
+        uses: actions/npm@master
         with:
           args: run lint
       - name: docker build
