@@ -18,10 +18,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           args: run lint
-      - name: docker build -t irt01/node-web-app:new .
-        uses: actions/checkout@v2
       - name: Tag the Docker image
-        run: docker build -t docker.pkg.github.com/${{ github.repository }}/irt01:one .
+        run: docker build -t irt01/node-web-app:new .
       - name: docker login
         uses: actions-hub/docker/login@master
         env:
@@ -30,4 +28,4 @@ jobs:
       - name: docker push
         uses: actions/checkout@v2
         with:
-          args: docker.pkg.github.com/${{ github.repository }}:one
+          args: irt01/node-web-app:new .
