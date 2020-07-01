@@ -21,7 +21,7 @@ jobs:
       - name: docker build -t irt01/node-web-app:new .
         uses: actions/checkout@v2
       - name: Tag the Docker image
-        run: docker tag myimage:latest docker.pkg.github.com/irt01/repository/new:1.0
+        run: docker build -t docker.pkg.github.com/${{ github.repository }}/irt01:one .
       - name: docker login
         uses: actions-hub/docker/login@master
         env:
@@ -30,4 +30,4 @@ jobs:
       - name: docker push
         uses: actions/checkout@v2
         with:
-          args: push irt01/node-web-app
+          args: docker.pkg.github.com/${{ github.repository }}:one
