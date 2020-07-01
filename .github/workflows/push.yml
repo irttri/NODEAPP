@@ -18,16 +18,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           args: run lint
-      - name: docker build
-        uses: actions-hub/docker/cli@master
-        with:
-          args: build -t irt01/node-web-app .
+      - name: docker build -t irt01/node-web-app .
+        uses: actions/checkout@v2
       - name: docker login
         uses: actions-hub/docker/login@master
         env:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       - name: docker push
-        uses: actions-hub/docker/cli@master
+        uses: actions/checkout@v2
         with:
           args: push irt01/node-web-app
