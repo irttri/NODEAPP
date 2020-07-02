@@ -25,4 +25,4 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
             dockerfile: Dockerfile
-            tags: ${{ steps.bump_version.outputs.next-version }}
+            tags: 1
